@@ -6,7 +6,8 @@ from matplotlib import pyplot as plt
 
 img = cv2.imread('../sources/IMG_20171011_173400.jpg', 0)
 
-plt.imshow(img, cmap='gray', interpolation='bicubic')
-plt.xticks([]), plt.yticks([]) # to hide the tick value on X and Y aixs
-plt.show()
+cv2.namedWindow('image', cv2.WINDOW_NORMAL)
+cv2.imshow('images', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
