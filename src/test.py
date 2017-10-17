@@ -2,17 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import cv2
+import numpy as np
 
-img = cv2.imread('../sources/IMG_20171011_173400.jpg', 1)
+img01 = cv2.imread('../sources/opencv-logo.jpg', 1)
+img02 = cv2.imread('../sources/ewm.jpg', 1)
 
-b, g, r = cv2.split(img)
-img = cv2.merge((b, g, r))
+timg01 = cv2.add(img01, img02)
+timg02 = img01 + img02
 
-# make red pixels all to zero
-img[:,:,2] = 0
-
-cv2.namedWindow('image', cv2.WINDOW_NORMAL)
-cv2.imshow('image', img)
+cv2.namedWindow('image1', cv2.WINDOW_NORMAL)
+cv2.namedWindow('image2', cv2.WINDOW_NORMAL)
+cv2.imshow('image1', timg01)
+cv2.imshow('image2', timg02)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
