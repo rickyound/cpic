@@ -30,8 +30,8 @@ dst = cv2.add(img01_bg, img02_bg)
 img01[0:rows, 0:cols] = dst
 
 # 展示看效果
-cv2.imshow('img02gray', img02gray)
-cv2.imshow('img02mask', mask)
+cv2.imshow('img01_bg', img01_bg)
+cv2.imshow('img02_bg', img02_bg)
 cv2.imshow('image', img01)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
