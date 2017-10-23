@@ -327,13 +327,13 @@ plt.show()
 
 这其实也是一种图像相加，只不过给每个图分配不同的比重，那么看上去就是融合或者透明了，图像会按照如下方程相加：
 
-    ![formula01](./pics/Image_01_06.png)
+![formula01](./pics/Image_01_06.png)
 
 其中的 ![formula02](./pics/Image_01_07.png) 取值从0 --> 1，可以在两个图片之间做一个很酷的过渡。
 
 OpenCV中的`cv2.addWeighted()`提供按如下方程相加：
 
-    ![formula03](./pics/Image_01_08.png)
+![formula03](./pics/Image_01_08.png)
 
 我们来测试一下，看一下效果（此例中图片为上面的两张一样的图片，第一张占比0.7，第二张占比0.3， ![formula04](./pics/Image_01_09.png) 给值0）
 
