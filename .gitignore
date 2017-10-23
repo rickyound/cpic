@@ -115,3 +115,5 @@ Desktop.ini
 # Mac
 *.DS_Store
 
+# gVim
+*.swp
