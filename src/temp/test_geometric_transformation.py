@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# ²âÊÔÍ¼ÏñµÄ¼¯ºÏ×ª»»
+# æµ‹è¯•å›¾åƒçš„é›†åˆè½¬æ¢
 
 import cv2
 import numpy as np
