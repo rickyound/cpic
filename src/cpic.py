@@ -2,21 +2,23 @@
 # -*- coding: utf-8 -*- 
 
 import cv2
+import numpy as np
+from matplotlib import pyplot as plt
 
-img = cv2.imread('../sources/img_small.jpg')
-imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+img_ori = cv2.imread('../sources/img_little.jpg')
 
-ret, thresh = cv2.threshold(imgray, 127, 255, 0) 
+img = cv2.cvtColor(img_ori, cv2.COLOR_BGR2RGB)
 
-cv2.namedWindow('original', cv2.WINDOW_NORMAL)
-cv2.namedWindow('final', cv2.WINDOW_NORMAL)
+rows, cols, ch = img.shape
 
-cv2.imshow('original', img)
-cv2.imshow('final', thresh)
+# 重点在于这几个点如何获取
+pts1 = np.float32([[69, 30], [473, 30], [4, 354], [500, 354]])
+pts2 = np.float32([[0, 0], [496, 0], [0, 324], [496, 324]])
 
-#image, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+M = cv2.getPerspectiveTransform(pts1, pts2)
 
-#cv2.imshow('images', image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+dst = cv2.warpPerspective(img, M, (496, 324))
 
+plt.subplot(121), plt.imshow(img), plt.title('Input'), plt.xticks([]), plt.yticks([])
+plt.subplot(122), plt.imshow(dst), plt.title('Output'), plt.xticks([]), plt.yticks([])
+plt.show()
